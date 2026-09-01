@@ -1,0 +1,12 @@
+{
+  "model": "kcde",
+  "horizon": 18,
+  "n_origins": 308,
+  "tail_q": 0.9,
+  "mspe_median": 1.1117407650855162,
+  "mspe_ratio_median": 0.8942880005068451,
+  "center_mspe_median": 0.7193643963165248,
+  "center_mspe_ratio_median": 0.9145597929226491,
+  "tails_mspe_median": 2.374870171396653,
+  "tails_mspe_ratio_median": 0.8753678448858011
+}

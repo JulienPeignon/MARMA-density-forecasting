@@ -1,0 +1,317 @@
+{
+  "_meta": {
+    "source": "simulations.py",
+    "schema": "alpha -> region -> metric -> model -> pvalue (region/metric order kept for outputs_simulations.py)",
+    "produced_by": "MCS_tests.py",
+    "refitted": false,
+    "mcs_alpha": 0.25,
+    "n_boot": 10000,
+    "seed": 1,
+    "bootstrap": "stationary (numba RNG seeded per test for reproducibility)",
+    "membership_rule": "model is in the MCS when pvalue >= 0.25",
+    "metrics": {
+      "cde_loss": "mean == cde_loss",
+      "crps": "mean == crps",
+      "log_prob": "loss is -log p(y); mean == -log_prob",
+      "qs_05": "mean == qs_05",
+      "qs_10": "mean == qs_10",
+      "qs_90": "mean == qs_90",
+      "qs_95": "mean == qs_95",
+      "mspe_median": "squared error of the conditional median; mean == mspe_median",
+      "Moment k": "squared moment error; sqrt of the mean == the reported RMSE",
+      "KL divergence": "mean == *_KL_divergence",
+      "ISE": "mean == *_ISE"
+    },
+    "verification": {
+      "note": "mean of each rebuilt per-observation loss compared with the aggregate the producer saved; only mismatches are listed. 'published' checks compare against the three-decimal ratios printed in Baumeister et al. (2025), so their residual is rounding, not reproduction error",
+      "n_checks": 144,
+      "max_abs_diff": 0.0,
+      "n_published_checks": 0,
+      "max_abs_diff_published": 0.0,
+      "mismatches": []
+    },
+    "process": "MARMA(1, 1, 1, 1)",
+    "horizon": 2,
+    "regions": "conditioning-grid slices of the theoretical quantiles of y_t"
+  },
+  "1.0": {
+    "Total": {
+      "Moment 1": {
+        "kcde": 0.0109,
+        "FlexZBoost": 0.0172,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.012,
+        "FlexZBoost": 0.012,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.1-0.9": {
+      "Moment 1": {
+        "kcde": 0.7858,
+        "FlexZBoost": 0.0049,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0512,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.01-0.1 and 0.9-0.99": {
+      "Moment 1": {
+        "kcde": 0.0094,
+        "FlexZBoost": 0.0133,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0081,
+        "FlexZBoost": 0.0081,
+        "mdn": 1.0
+      }
+    }
+  },
+  "1.2": {
+    "Total": {
+      "Moment 1": {
+        "kcde": 0.1923,
+        "FlexZBoost": 0.064,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.001,
+        "FlexZBoost": 0.001,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.018,
+        "FlexZBoost": 0.0162,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.1-0.9": {
+      "Moment 1": {
+        "kcde": 0.0558,
+        "FlexZBoost": 0.0457,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0001,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0071,
+        "FlexZBoost": 0.311,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.01-0.1 and 0.9-0.99": {
+      "Moment 1": {
+        "kcde": 0.1741,
+        "FlexZBoost": 0.0491,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0004,
+        "FlexZBoost": 0.0004,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0128,
+        "FlexZBoost": 0.0092,
+        "mdn": 1.0
+      }
+    }
+  },
+  "1.4": {
+    "Total": {
+      "Moment 1": {
+        "kcde": 0.0122,
+        "FlexZBoost": 0.0217,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.1137,
+        "FlexZBoost": 0.0008,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.1297,
+        "FlexZBoost": 0.0004,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.1-0.9": {
+      "Moment 1": {
+        "kcde": 0.0113,
+        "FlexZBoost": 0.0113,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0417,
+        "FlexZBoost": 0.1373,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0337,
+        "FlexZBoost": 0.0337,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.01-0.1 and 0.9-0.99": {
+      "Moment 1": {
+        "kcde": 0.0087,
+        "FlexZBoost": 0.0168,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0947,
+        "FlexZBoost": 0.0002,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.1197,
+        "FlexZBoost": 0.0001,
+        "mdn": 1.0
+      }
+    }
+  },
+  "1.6": {
+    "Total": {
+      "Moment 1": {
+        "kcde": 0.0246,
+        "FlexZBoost": 1.0,
+        "mdn": 0.8062
+      },
+      "Moment 2": {
+        "kcde": 0.2903,
+        "FlexZBoost": 0.9804,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0663,
+        "FlexZBoost": 0.0663,
+        "mdn": 1.0
+      },
+      "Moment 4": {
+        "kcde": 0.03,
+        "FlexZBoost": 0.03,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.1-0.9": {
+      "Moment 1": {
+        "kcde": 0.0,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.0429,
+        "FlexZBoost": 0.0429,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.1754,
+        "FlexZBoost": 0.0145,
+        "mdn": 1.0
+      },
+      "Moment 4": {
+        "kcde": 0.6894,
+        "FlexZBoost": 0.1153,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.01-0.1 and 0.9-0.99": {
+      "Moment 1": {
+        "kcde": 0.0146,
+        "FlexZBoost": 1.0,
+        "mdn": 0.6984
+      },
+      "Moment 2": {
+        "kcde": 0.2278,
+        "FlexZBoost": 0.9861,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0389,
+        "FlexZBoost": 0.0389,
+        "mdn": 1.0
+      },
+      "Moment 4": {
+        "kcde": 0.0181,
+        "FlexZBoost": 0.0181,
+        "mdn": 1.0
+      }
+    }
+  },
+  "1.8": {
+    "Total": {
+      "Moment 1": {
+        "kcde": 0.0692,
+        "FlexZBoost": 0.0006,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.1706,
+        "FlexZBoost": 0.227,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.1149,
+        "FlexZBoost": 1.0,
+        "mdn": 0.7728
+      },
+      "Moment 4": {
+        "kcde": 0.1228,
+        "FlexZBoost": 0.1339,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.1-0.9": {
+      "Moment 1": {
+        "kcde": 0.0,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.8819,
+        "FlexZBoost": 0.0013,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.3603,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      },
+      "Moment 4": {
+        "kcde": 0.6546,
+        "FlexZBoost": 0.0,
+        "mdn": 1.0
+      }
+    },
+    "Between 0.01-0.1 and 0.9-0.99": {
+      "Moment 1": {
+        "kcde": 0.0183,
+        "FlexZBoost": 0.0183,
+        "mdn": 1.0
+      },
+      "Moment 2": {
+        "kcde": 0.1012,
+        "FlexZBoost": 0.3544,
+        "mdn": 1.0
+      },
+      "Moment 3": {
+        "kcde": 0.0484,
+        "FlexZBoost": 1.0,
+        "mdn": 0.4768
+      },
+      "Moment 4": {
+        "kcde": 0.0676,
+        "FlexZBoost": 0.1853,
+        "mdn": 1.0
+      }
+    }
+  }
+}

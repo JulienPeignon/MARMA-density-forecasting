@@ -1,0 +1,12 @@
+{
+  "model": "lls2012",
+  "horizon": 18,
+  "n_origins": 308,
+  "tail_q": 0.9,
+  "mspe_median": 1.0226507283729709,
+  "mspe_ratio_median": 0.8226236761437683,
+  "center_mspe_median": 0.7124078415254499,
+  "center_mspe_ratio_median": 0.9057156169504188,
+  "tails_mspe_median": 2.0213778298684155,
+  "tails_mspe_ratio_median": 0.7450719521190691
+}

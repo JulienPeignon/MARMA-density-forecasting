@@ -1,0 +1,12 @@
+{
+  "model": "araic",
+  "horizon": 6,
+  "n_origins": 320,
+  "tail_q": 0.9,
+  "mspe_median": 0.6699587748183065,
+  "mspe_ratio_median": 0.8905969855262021,
+  "center_mspe_median": 0.3488119784676574,
+  "center_mspe_ratio_median": 0.9678610128349749,
+  "tails_mspe_median": 1.756578756991051,
+  "tails_mspe_ratio_median": 0.8452600118960347
+}

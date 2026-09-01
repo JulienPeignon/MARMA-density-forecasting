@@ -1,0 +1,12 @@
+{
+  "model": "flexzboost",
+  "horizon": 24,
+  "n_origins": 302,
+  "tail_q": 0.9,
+  "mspe_median": 1.5154474372619937,
+  "mspe_ratio_median": 1.1566698699032438,
+  "center_mspe_median": 1.0552787209714178,
+  "center_mspe_ratio_median": 1.167827318433953,
+  "tails_mspe_median": 2.9589903965844844,
+  "tails_mspe_ratio_median": 1.144437388978469
+}

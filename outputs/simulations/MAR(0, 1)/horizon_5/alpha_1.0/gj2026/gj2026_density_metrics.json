@@ -1,0 +1,8 @@
+{
+  "center_KL_divergence": 0.27353860119531875,
+  "center_ISE": 0.04758674235317283,
+  "tails_KL_divergence": 10.545418830000393,
+  "tails_ISE": 0.7721137391352959,
+  "mean_KL_divergence": 9.55108676037987,
+  "mean_ISE": 0.7019820077037405
+}

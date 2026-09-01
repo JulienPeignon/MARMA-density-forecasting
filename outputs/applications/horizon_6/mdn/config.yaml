@@ -1,0 +1,10 @@
+model: mdn
+params:
+  dropout: 0.15000000000000002
+  lags: 4
+  learning_rate: 0.004
+  mlp_depth: 3
+  mlp_width: 128
+  n_mixtures: 1
+val:
+  nll: 0.6793225494123274

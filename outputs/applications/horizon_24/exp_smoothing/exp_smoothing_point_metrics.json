@@ -1,0 +1,12 @@
+{
+  "model": "exp_smoothing",
+  "horizon": 24,
+  "n_origins": 302,
+  "tail_q": 0.9,
+  "mspe_median": 1.0245245756806687,
+  "mspe_ratio_median": 0.7819715013054349,
+  "center_mspe_median": 0.8407637016933737,
+  "center_mspe_ratio_median": 0.9304336377420144,
+  "tails_mspe_median": 1.6009799201065669,
+  "tails_mspe_ratio_median": 0.6192048753144387
+}

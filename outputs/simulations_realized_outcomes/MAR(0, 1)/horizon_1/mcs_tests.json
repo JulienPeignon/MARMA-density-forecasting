@@ -1,0 +1,572 @@
+{
+  "_meta": {
+    "source": "simulations_realized_outcomes.py",
+    "schema": "alpha -> metric -> model -> pvalue",
+    "produced_by": "MCS_tests.py",
+    "refitted": false,
+    "mcs_alpha": 0.25,
+    "n_boot": 10000,
+    "seed": 1,
+    "bootstrap": "stationary (numba RNG seeded per test for reproducibility)",
+    "membership_rule": "model is in the MCS when pvalue >= 0.25",
+    "metrics": {
+      "cde_loss": "mean == cde_loss",
+      "crps": "mean == crps",
+      "log_prob": "loss is -log p(y); mean == -log_prob",
+      "qs_05": "mean == qs_05",
+      "qs_10": "mean == qs_10",
+      "qs_90": "mean == qs_90",
+      "qs_95": "mean == qs_95",
+      "mspe_median": "squared error of the conditional median; mean == mspe_median",
+      "Moment k": "squared moment error; sqrt of the mean == the reported RMSE",
+      "KL divergence": "mean == *_KL_divergence",
+      "ISE": "mean == *_ISE"
+    },
+    "verification": {
+      "note": "mean of each rebuilt per-observation loss compared with the aggregate the producer saved; only mismatches are listed. 'published' checks compare against the three-decimal ratios printed in Baumeister et al. (2025), so their residual is rounding, not reproduction error",
+      "n_checks": 375,
+      "max_abs_diff": 1.03113206861849e-09,
+      "n_published_checks": 0,
+      "max_abs_diff_published": 0.0,
+      "mismatches": []
+    },
+    "process": "MAR(0, 1)",
+    "horizon": 1,
+    "weight_thresholds": "theoretical marginal quantiles at 5/10/90/95%, the thresholds of the twCRPS and CSL weight functions"
+  },
+  "1.0": {
+    "cde_loss": {
+      "kcde": 0.0,
+      "lls2012": 0.0,
+      "gj2026": 0.0221,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "crps": {
+      "kcde": 0.0792,
+      "lls2012": 0.0579,
+      "gj2026": 0.0579,
+      "FlexZBoost": 0.0579,
+      "mdn": 1.0
+    },
+    "csl_05": {
+      "kcde": 0.1171,
+      "lls2012": 0.1137,
+      "gj2026": 0.1137,
+      "FlexZBoost": 0.1137,
+      "mdn": 1.0
+    },
+    "csl_10": {
+      "kcde": 0.1358,
+      "lls2012": 0.0375,
+      "gj2026": 0.1358,
+      "FlexZBoost": 0.0375,
+      "mdn": 1.0
+    },
+    "csl_90": {
+      "kcde": 0.0592,
+      "lls2012": 0.0046,
+      "gj2026": 0.0046,
+      "FlexZBoost": 0.0046,
+      "mdn": 1.0
+    },
+    "csl_95": {
+      "kcde": 0.067,
+      "lls2012": 0.0361,
+      "gj2026": 0.0361,
+      "FlexZBoost": 0.0361,
+      "mdn": 1.0
+    },
+    "log_prob": {
+      "kcde": 0.0197,
+      "lls2012": 0.0197,
+      "gj2026": 0.0197,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "qs_05": {
+      "kcde": 0.6031,
+      "lls2012": 0.6031,
+      "gj2026": 0.6031,
+      "FlexZBoost": 0.5979,
+      "mdn": 1.0
+    },
+    "qs_10": {
+      "kcde": 0.557,
+      "lls2012": 0.557,
+      "gj2026": 0.557,
+      "FlexZBoost": 0.3462,
+      "mdn": 1.0
+    },
+    "qs_90": {
+      "kcde": 0.1002,
+      "lls2012": 0.1002,
+      "gj2026": 0.3304,
+      "FlexZBoost": 0.1002,
+      "mdn": 1.0
+    },
+    "qs_95": {
+      "kcde": 0.078,
+      "lls2012": 0.078,
+      "gj2026": 0.4008,
+      "FlexZBoost": 0.1311,
+      "mdn": 1.0
+    },
+    "twcrps_05": {
+      "kcde": 0.3612,
+      "lls2012": 0.3612,
+      "gj2026": 0.3612,
+      "FlexZBoost": 0.3612,
+      "mdn": 1.0
+    },
+    "twcrps_10": {
+      "kcde": 0.3536,
+      "lls2012": 0.3536,
+      "gj2026": 0.3536,
+      "FlexZBoost": 0.2505,
+      "mdn": 1.0
+    },
+    "twcrps_90": {
+      "kcde": 0.1626,
+      "lls2012": 0.1626,
+      "gj2026": 0.1626,
+      "FlexZBoost": 0.1626,
+      "mdn": 1.0
+    },
+    "twcrps_95": {
+      "kcde": 0.1955,
+      "lls2012": 0.1955,
+      "gj2026": 0.1955,
+      "FlexZBoost": 0.1955,
+      "mdn": 1.0
+    }
+  },
+  "1.2": {
+    "cde_loss": {
+      "kcde": 0.0,
+      "lls2012": 0.0402,
+      "gj2026": 0.2847,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "crps": {
+      "kcde": 0.2063,
+      "lls2012": 0.0004,
+      "gj2026": 0.2063,
+      "FlexZBoost": 0.0004,
+      "mdn": 1.0
+    },
+    "csl_05": {
+      "kcde": 0.1665,
+      "lls2012": 0.0195,
+      "gj2026": 0.1665,
+      "FlexZBoost": 0.0195,
+      "mdn": 1.0
+    },
+    "csl_10": {
+      "kcde": 0.1797,
+      "lls2012": 0.0024,
+      "gj2026": 0.1797,
+      "FlexZBoost": 0.0024,
+      "mdn": 1.0
+    },
+    "csl_90": {
+      "kcde": 0.1047,
+      "lls2012": 0.0,
+      "gj2026": 0.0,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "csl_95": {
+      "kcde": 0.1156,
+      "lls2012": 0.0019,
+      "gj2026": 0.0019,
+      "FlexZBoost": 0.0019,
+      "mdn": 1.0
+    },
+    "log_prob": {
+      "kcde": 0.0462,
+      "lls2012": 0.0462,
+      "gj2026": 0.0547,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "qs_05": {
+      "kcde": 0.0821,
+      "lls2012": 0.4327,
+      "gj2026": 0.4327,
+      "FlexZBoost": 0.0821,
+      "mdn": 1.0
+    },
+    "qs_10": {
+      "kcde": 0.4189,
+      "lls2012": 0.4725,
+      "gj2026": 0.4725,
+      "FlexZBoost": 0.0482,
+      "mdn": 1.0
+    },
+    "qs_90": {
+      "kcde": 0.5869,
+      "lls2012": 0.0,
+      "gj2026": 0.5869,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "qs_95": {
+      "kcde": 0.2382,
+      "lls2012": 0.0,
+      "gj2026": 0.9355,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "twcrps_05": {
+      "kcde": 0.2943,
+      "lls2012": 0.2943,
+      "gj2026": 0.4149,
+      "FlexZBoost": 0.2943,
+      "mdn": 1.0
+    },
+    "twcrps_10": {
+      "kcde": 0.1533,
+      "lls2012": 0.1533,
+      "gj2026": 0.4221,
+      "FlexZBoost": 0.1533,
+      "mdn": 1.0
+    },
+    "twcrps_90": {
+      "kcde": 0.1939,
+      "lls2012": 0.0045,
+      "gj2026": 0.1939,
+      "FlexZBoost": 0.0045,
+      "mdn": 1.0
+    },
+    "twcrps_95": {
+      "kcde": 0.1179,
+      "lls2012": 0.0474,
+      "gj2026": 0.0474,
+      "FlexZBoost": 0.0474,
+      "mdn": 1.0
+    }
+  },
+  "1.4": {
+    "cde_loss": {
+      "kcde": 0.0,
+      "lls2012": 0.0107,
+      "gj2026": 0.0294,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "crps": {
+      "kcde": 0.1136,
+      "lls2012": 0.0678,
+      "gj2026": 0.1136,
+      "FlexZBoost": 0.0678,
+      "mdn": 1.0
+    },
+    "csl_05": {
+      "kcde": 0.1824,
+      "lls2012": 0.0436,
+      "gj2026": 0.1824,
+      "FlexZBoost": 0.0436,
+      "mdn": 1.0
+    },
+    "csl_10": {
+      "kcde": 0.1619,
+      "lls2012": 0.0022,
+      "gj2026": 0.1619,
+      "FlexZBoost": 0.0022,
+      "mdn": 1.0
+    },
+    "csl_90": {
+      "kcde": 0.1157,
+      "lls2012": 0.0241,
+      "gj2026": 0.1157,
+      "FlexZBoost": 0.0241,
+      "mdn": 1.0
+    },
+    "csl_95": {
+      "kcde": 0.1182,
+      "lls2012": 0.1156,
+      "gj2026": 0.1156,
+      "FlexZBoost": 0.1156,
+      "mdn": 1.0
+    },
+    "log_prob": {
+      "kcde": 0.0412,
+      "lls2012": 0.0412,
+      "gj2026": 0.0569,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "qs_05": {
+      "kcde": 0.6184,
+      "lls2012": 0.649,
+      "gj2026": 0.649,
+      "FlexZBoost": 0.6087,
+      "mdn": 1.0
+    },
+    "qs_10": {
+      "kcde": 0.5207,
+      "lls2012": 0.3304,
+      "gj2026": 0.5207,
+      "FlexZBoost": 0.3304,
+      "mdn": 1.0
+    },
+    "qs_90": {
+      "kcde": 0.1368,
+      "lls2012": 0.1368,
+      "gj2026": 0.5015,
+      "FlexZBoost": 0.1368,
+      "mdn": 1.0
+    },
+    "qs_95": {
+      "kcde": 0.1919,
+      "lls2012": 0.1919,
+      "gj2026": 0.4757,
+      "FlexZBoost": 0.1919,
+      "mdn": 1.0
+    },
+    "twcrps_05": {
+      "kcde": 0.3118,
+      "lls2012": 0.3118,
+      "gj2026": 0.3118,
+      "FlexZBoost": 0.3118,
+      "mdn": 1.0
+    },
+    "twcrps_10": {
+      "kcde": 0.2489,
+      "lls2012": 0.2489,
+      "gj2026": 0.2489,
+      "FlexZBoost": 0.2489,
+      "mdn": 1.0
+    },
+    "twcrps_90": {
+      "kcde": 0.3361,
+      "lls2012": 0.3361,
+      "gj2026": 0.3361,
+      "FlexZBoost": 0.3361,
+      "mdn": 1.0
+    },
+    "twcrps_95": {
+      "kcde": 0.3667,
+      "lls2012": 0.3667,
+      "gj2026": 0.3667,
+      "FlexZBoost": 0.3667,
+      "mdn": 1.0
+    }
+  },
+  "1.6": {
+    "cde_loss": {
+      "kcde": 0.0064,
+      "lls2012": 0.0064,
+      "gj2026": 0.3423,
+      "FlexZBoost": 0.0,
+      "mdn": 1.0
+    },
+    "crps": {
+      "kcde": 0.1908,
+      "lls2012": 0.2827,
+      "gj2026": 0.2827,
+      "FlexZBoost": 0.2827,
+      "mdn": 1.0
+    },
+    "csl_05": {
+      "kcde": 0.2579,
+      "lls2012": 0.0681,
+      "gj2026": 0.2579,
+      "FlexZBoost": 0.1406,
+      "mdn": 1.0
+    },
+    "csl_10": {
+      "kcde": 0.2311,
+      "lls2012": 0.0679,
+      "gj2026": 0.2311,
+      "FlexZBoost": 0.0955,
+      "mdn": 1.0
+    },
+    "csl_90": {
+      "kcde": 0.2066,
+      "lls2012": 0.1879,
+      "gj2026": 0.3139,
+      "FlexZBoost": 0.1879,
+      "mdn": 1.0
+    },
+    "csl_95": {
+      "kcde": 0.3508,
+      "lls2012": 0.0263,
+      "gj2026": 0.3508,
+      "FlexZBoost": 0.0263,
+      "mdn": 1.0
+    },
+    "log_prob": {
+      "kcde": 0.0959,
+      "lls2012": 0.0026,
+      "gj2026": 0.1167,
+      "FlexZBoost": 0.0026,
+      "mdn": 1.0
+    },
+    "qs_05": {
+      "kcde": 0.0648,
+      "lls2012": 0.8968,
+      "gj2026": 0.6322,
+      "FlexZBoost": 0.0648,
+      "mdn": 1.0
+    },
+    "qs_10": {
+      "kcde": 0.7171,
+      "lls2012": 0.8232,
+      "gj2026": 0.8232,
+      "FlexZBoost": 0.8232,
+      "mdn": 1.0
+    },
+    "qs_90": {
+      "kcde": 0.1583,
+      "lls2012": 0.1583,
+      "gj2026": 0.3435,
+      "FlexZBoost": 0.1583,
+      "mdn": 1.0
+    },
+    "qs_95": {
+      "kcde": 0.1546,
+      "lls2012": 0.1546,
+      "gj2026": 0.4052,
+      "FlexZBoost": 0.1546,
+      "mdn": 1.0
+    },
+    "twcrps_05": {
+      "kcde": 0.0954,
+      "lls2012": 0.0954,
+      "gj2026": 0.0954,
+      "FlexZBoost": 0.0954,
+      "mdn": 1.0
+    },
+    "twcrps_10": {
+      "kcde": 0.0314,
+      "lls2012": 0.0314,
+      "gj2026": 0.0314,
+      "FlexZBoost": 0.0314,
+      "mdn": 1.0
+    },
+    "twcrps_90": {
+      "kcde": 0.1534,
+      "lls2012": 0.1534,
+      "gj2026": 0.4296,
+      "FlexZBoost": 0.3294,
+      "mdn": 1.0
+    },
+    "twcrps_95": {
+      "kcde": 0.3275,
+      "lls2012": 0.3275,
+      "gj2026": 0.4051,
+      "FlexZBoost": 0.3678,
+      "mdn": 1.0
+    }
+  },
+  "1.8": {
+    "cde_loss": {
+      "kcde": 0.008,
+      "lls2012": 0.0002,
+      "gj2026": 0.5528,
+      "FlexZBoost": 0.0002,
+      "mdn": 1.0
+    },
+    "crps": {
+      "kcde": 0.2733,
+      "lls2012": 0.2733,
+      "gj2026": 0.2733,
+      "FlexZBoost": 0.2733,
+      "mdn": 1.0
+    },
+    "csl_05": {
+      "kcde": 0.4206,
+      "lls2012": 0.0721,
+      "gj2026": 0.4206,
+      "FlexZBoost": 0.4206,
+      "mdn": 1.0
+    },
+    "csl_10": {
+      "kcde": 0.4039,
+      "lls2012": 0.0678,
+      "gj2026": 0.4308,
+      "FlexZBoost": 0.4039,
+      "mdn": 1.0
+    },
+    "csl_90": {
+      "kcde": 0.4944,
+      "lls2012": 0.259,
+      "gj2026": 0.4944,
+      "FlexZBoost": 0.4944,
+      "mdn": 1.0
+    },
+    "csl_95": {
+      "kcde": 0.5398,
+      "lls2012": 0.2451,
+      "gj2026": 0.5398,
+      "FlexZBoost": 0.5398,
+      "mdn": 1.0
+    },
+    "log_prob": {
+      "kcde": 0.1632,
+      "lls2012": 0.0537,
+      "gj2026": 0.1632,
+      "FlexZBoost": 0.0537,
+      "mdn": 1.0
+    },
+    "qs_05": {
+      "kcde": 0.6251,
+      "lls2012": 0.6251,
+      "gj2026": 0.3831,
+      "FlexZBoost": 0.3831,
+      "mdn": 1.0
+    },
+    "qs_10": {
+      "kcde": 0.6125,
+      "lls2012": 0.6125,
+      "gj2026": 0.5296,
+      "FlexZBoost": 0.5296,
+      "mdn": 1.0
+    },
+    "qs_90": {
+      "kcde": 0.2143,
+      "lls2012": 0.2143,
+      "gj2026": 0.2671,
+      "FlexZBoost": 0.2143,
+      "mdn": 1.0
+    },
+    "qs_95": {
+      "kcde": 0.344,
+      "lls2012": 0.498,
+      "gj2026": 0.498,
+      "FlexZBoost": 0.498,
+      "mdn": 1.0
+    },
+    "twcrps_05": {
+      "kcde": 0.462,
+      "lls2012": 0.462,
+      "gj2026": 0.462,
+      "FlexZBoost": 0.4463,
+      "mdn": 1.0
+    },
+    "twcrps_10": {
+      "kcde": 0.3502,
+      "lls2012": 0.4785,
+      "gj2026": 0.4785,
+      "FlexZBoost": 0.3167,
+      "mdn": 1.0
+    },
+    "twcrps_90": {
+      "kcde": 0.3216,
+      "lls2012": 0.3216,
+      "gj2026": 0.3666,
+      "FlexZBoost": 0.3216,
+      "mdn": 1.0
+    },
+    "twcrps_95": {
+      "kcde": 0.3133,
+      "lls2012": 0.3133,
+      "gj2026": 0.38,
+      "FlexZBoost": 0.3133,
+      "mdn": 1.0
+    }
+  }
+}

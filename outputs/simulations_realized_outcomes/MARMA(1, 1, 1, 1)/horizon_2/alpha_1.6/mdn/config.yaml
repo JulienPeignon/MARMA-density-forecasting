@@ -1,0 +1,19 @@
+fixed:
+  batch_size: 512
+  density: skewt
+  horizon: 2
+  max_epochs: 1000
+  max_norm: 30.0
+  patience: 30
+  scheduler_factor: 0.5
+  scheduler_patience: 10
+model: mdn
+params:
+  dropout: 0.15000000000000002
+  lags: 9
+  learning_rate: 0.0001
+  mlp_depth: 4
+  mlp_width: 512
+  n_mixtures: 8
+val:
+  nll: 1.0454703487531103

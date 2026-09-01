@@ -1,0 +1,12 @@
+{
+  "model": "gj2026",
+  "horizon": 21,
+  "n_origins": 305,
+  "tail_q": 0.9,
+  "mspe_median": 2.41060656681706,
+  "mspe_ratio_median": 1.8523359381444686,
+  "center_mspe_median": 1.714744953872402,
+  "center_mspe_ratio_median": 1.9444903818212087,
+  "tails_mspe_median": 4.622111966860357,
+  "tails_mspe_ratio_median": 1.754309997739762
+}

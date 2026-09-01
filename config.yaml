@@ -1,0 +1,110 @@
+seed: !!int 1
+calibration_seed: !!int 2
+test_seed: !!int 3
+
+arguments:
+  - name: --model
+    choices: [mdn, flexzboost, lls2012, kcde, gj2026, ar1, araic, exp_smoothing]
+    required: false
+    default: null
+    help: >-
+      Forecast model to run: mdn | flexzboost | lls2012 | kcde | gj2026.
+
+  - name: --order
+    nargs: '+'
+    type: int
+    help: "Model order: 2 values for MAR (r, s) or 4 values for MARMA (r, s, q, p)"
+
+alpha_stable_params:
+  ALPHA: 1.8
+  BETA: 0.0
+  SIGMA: 0.5
+
+mar_params:
+  (0, 1):   # AR(1)
+    PSI: 0.9
+    PHI: 0.0
+    THETA: null
+    ETA: null
+
+  (0, 2):   # AR(2)
+    PSI: [0.7, 0.1]
+    PHI: 0.0
+    THETA: 0.0
+    ETA: 0.0
+
+  (1, 1):   # MAR(1,1)
+    PSI: 0.9
+    PHI: 0.1
+    THETA: 0.0
+    ETA: 0.0
+
+  (1, 1, 1, 1): # MARMA(1,1,1,1)
+    PSI: 0.9
+    PHI: -0.3
+    THETA: -0.4
+    ETA: 0.3
+
+# Recursive real-time application
+application:
+  order: [1, 1]
+  simulation_seed: !!int 1752
+  first_origin: "1997-01"
+  sample_start: "1976-01"
+  gcov_params:
+    H: 4
+    K: 1
+
+sampled_trajectories:
+  draw_seed:
+    (0, 1): 8
+    (0, 2): 21
+    (1, 1): 37
+    (1, 1, 1, 1): 19
+  estimation_seed:
+    (1, 1, 1, 1): 5
+
+length_simulation: !!int 2000
+
+length_calibration: !!int 1000
+
+length_estimation: !!int 300
+
+n_points_grid: !!int 5000
+
+kcde_params:
+  KERNEL: "gaussian"
+  BANDWIDTH: "silverman"
+
+lls2012_params:
+  M: !!int 50
+  N_DRAWS: !!int 1000
+
+flexzboost_params:
+  MAX_BASIS: 31
+  BASIS_SYSTEM: "cosine"
+
+mdn_params:
+  model_params:
+    DENSITY: "skewt"
+
+  dataloaders_params:
+    CONDITIONAL_LAGS: 1
+
+  training_params:
+    BATCH_SIZE: 512
+    MAX_EPOCHS: 1000
+    MAX_GRAD_NORM: 30.0
+    EARLY_STOPPING_PATIENCE: 30
+    SCHEDULER_PATIENCE: 10
+    SCHEDULER_FACTOR: 0.5
+
+optuna_params:
+  N_TRIALS: 100
+  LAGS_RANGE: [1, 10]
+  LR_GRID: [1.0e-4, 2.0e-4, 4.0e-4, 6.0e-4, 8.0e-4, 1.0e-3, 2.0e-3, 4.0e-3, 6.0e-3, 8.0e-3, 1.0e-2]
+  WIDTH_GRID: [64, 128, 256, 512]
+  DEPTH_RANGE: [1, 5]
+  N_MIXTURES_RANGE: [1, 10]
+  DROPOUT_MAX: 0.2
+  DROPOUT_STEP: 0.05
